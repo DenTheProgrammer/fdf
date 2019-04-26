@@ -10,7 +10,7 @@ FLAGS = -Wall -Wextra -Werror
 all: $(NAME)
 
 $(NAME) :
-	@$(CC) $(FLAGS) -I /Users/ashari/Desktop/FdF/minilibx	$(SRCS) -L /Users/ashari/Desktop/FdF/minilibx -lmlx -framework	OpenGL -framework AppKit
+	@$(CC) $(FLAGS) -I ./minilibx	$(SRCS) -L ./minilibx -lmlx -framework	OpenGL -framework AppKit
 
 clean :
 	@rm -f $(OBJS)
