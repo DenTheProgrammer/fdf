@@ -6,7 +6,7 @@
 /*   By: ashari <ashari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/25 17:21:42 by ashari            #+#    #+#             */
-/*   Updated: 2019/04/26 16:10:29 by ashari           ###   ########.fr       */
+/*   Updated: 2019/04/26 18:43:24 by ashari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,10 +87,10 @@ int				main(void)
 	if (!(window = (t_fdf *)malloc(sizeof(t_fdf))))
 		return (0);
 	window->next = NULL;
-	window->x1 = 60;
-	window->x2 = 300;
+	window->x1 = 50;
+	window->x2 = 51;
 	window->y1 = 20;
-	window->y2 = 100;
+	window->y2 = 400;
 	window->color = 0xFF00;
 	window->size = 500;
 	if (!(window->mlx_ptr = mlx_init()))

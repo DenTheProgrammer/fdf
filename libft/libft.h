@@ -6,15 +6,19 @@
 /*   By: ashari <ashari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/06 19:16:05 by ashari            #+#    #+#             */
-/*   Updated: 2019/04/13 11:56:45 by ashari           ###   ########.fr       */
+/*   Updated: 2019/04/26 19:10:25 by ashari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# define BUFF_SIZE 1596
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <fcntl.h>
+# include <sys/types.h>
+# include <sys/uio.h>
 
 typedef struct		s_list
 {
@@ -26,6 +30,8 @@ typedef struct		s_list
 void				ft_swap(int *a, int *b);
 char				*ft_strndup(const char *s1, size_t n);
 int					ft_isupper(int c);
+int					ft_cpytoln(int fd, char **line, char **s_line);
+int					get_next_line(const int fd, char **line);
 int					ft_islower(int c);
 int					ft_isxdigit(int c);
 int					ft_isblank(int c);
