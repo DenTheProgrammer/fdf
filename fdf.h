@@ -6,7 +6,7 @@
 /*   By: ashari <ashari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/25 17:25:28 by ashari            #+#    #+#             */
-/*   Updated: 2019/04/26 15:44:08 by ashari           ###   ########.fr       */
+/*   Updated: 2019/04/26 22:32:08 by ashari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,31 @@
 # include <mlx.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <math.h>
 
-typedef	struct		fdf
+typedef	struct		dot
 {
+	int				x;
+	int				y;
+	int				z;
+	int				color;
+}					t_dot;
+
+typedef	struct		window
+{
+	int				size; //size of the window
+	int				pix_size; //for example: 10 pixels for 1 step
+	int				start_x;
+	int				start_y;
 	int				x1;
 	int				x2;
 	int				y1;
 	int				y2;
-	int				color;
-	int				size;
-	void			*mlx_ptr;
-	void			*win_ptr;
-	struct fdf		*next;
-}					t_fdf;
+	void			*mlx_ptr; //system
+	void			*win_ptr; //system
+	t_dot			**points;
+}					t_window;
 
-int				ft_brezen(int key, t_fdf *map);
+//int				ft_brezen(int key, t_window *map);
 
 #endif
