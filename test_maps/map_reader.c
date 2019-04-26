@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   map_reader.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: djeanna <djeanna@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ashari <ashari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/19 08:37:23 by djeanna           #+#    #+#             */
-/*   Updated: 2019/04/20 16:48:44 by djeanna          ###   ########.fr       */
+/*   Created: 2019/04/26 17:37:07 by ashari            #+#    #+#             */
+/*   Updated: 2019/04/26 17:41:09 by ashari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_sqrt(int n)
+int     main(int ac, char **av)
 {
-	int i;
+    int     fd;
+    int     flag;
 
-	i = 1;
-	while (i * i < n)
-		i++;
-	return (i);
+    flag = 0;
+    if (ac == 2)
+    {
+        if ((fd = open(av[1], O_RDONLY)) != -1)
+            return (0);
+
+    }
+    return (0);
 }
