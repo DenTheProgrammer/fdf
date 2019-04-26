@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strndup.c                                       :+:      :+:    :+:   */
+/*   ft_memdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ashari <ashari@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ashari <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/04 18:00:07 by ashari            #+#    #+#             */
-/*   Updated: 2019/04/13 11:44:43 by ashari           ###   ########.fr       */
+/*   Created: 2019/04/07 13:33:51 by ashari            #+#    #+#             */
+/*   Updated: 2019/04/07 21:29:42 by ashari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strndup(const char *s1, size_t n)
+void	ft_memdel(void **ap)
 {
-	char	*new_s1;
-	int		i;
-
-	if (!(new_s1 = (char *)malloc(sizeof(char) * (n + 1))))
-		return (NULL);
-	i = 0;
-	while (s1[i] && i < (int)n)
+	if (ap && *ap)
 	{
-		new_s1[i] = s1[i];
-		i++;
+		free(*ap);
+		*ap = NULL;
 	}
-	new_s1[i] = '\0';
-	return (new_s1);
 }

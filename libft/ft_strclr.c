@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strndup.c                                       :+:      :+:    :+:   */
+/*   ft_strclr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ashari <ashari@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ashari <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/04 18:00:07 by ashari            #+#    #+#             */
-/*   Updated: 2019/04/13 11:44:43 by ashari           ###   ########.fr       */
+/*   Created: 2019/04/06 21:55:14 by ashari            #+#    #+#             */
+/*   Updated: 2019/04/07 11:34:13 by ashari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strndup(const char *s1, size_t n)
+void		ft_strclr(char *s)
 {
-	char	*new_s1;
-	int		i;
+	char	*s1;
 
-	if (!(new_s1 = (char *)malloc(sizeof(char) * (n + 1))))
-		return (NULL);
-	i = 0;
-	while (s1[i] && i < (int)n)
+	if (s != NULL)
 	{
-		new_s1[i] = s1[i];
-		i++;
+		s1 = s;
+		while (*s1)
+		{
+			*s1 = '\0';
+			s1++;
+		}
 	}
-	new_s1[i] = '\0';
-	return (new_s1);
 }

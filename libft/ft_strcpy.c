@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strndup.c                                       :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ashari <ashari@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ashari <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/04 18:00:07 by ashari            #+#    #+#             */
-/*   Updated: 2019/04/13 11:44:43 by ashari           ###   ########.fr       */
+/*   Created: 2019/04/04 18:13:09 by ashari            #+#    #+#             */
+/*   Updated: 2019/04/06 20:05:45 by ashari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char		*ft_strndup(const char *s1, size_t n)
+char				*ft_strcpy(char *dst, const char *src)
 {
-	char	*new_s1;
-	int		i;
+	int				i;
+	unsigned char	*src1;
 
-	if (!(new_s1 = (char *)malloc(sizeof(char) * (n + 1))))
-		return (NULL);
 	i = 0;
-	while (s1[i] && i < (int)n)
+	src1 = (unsigned char *)src;
+	while (src1[i])
 	{
-		new_s1[i] = s1[i];
+		dst[i] = src1[i];
 		i++;
 	}
-	new_s1[i] = '\0';
-	return (new_s1);
+	dst[i] = src1[i];
+	return (dst);
 }

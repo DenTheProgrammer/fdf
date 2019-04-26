@@ -1,6 +1,6 @@
 NAME = a.out
 
-SRCS = first_step.c
+SRCS = ft_brezen.c
 
 OBJS = $(SRCS:.c=.o)
 

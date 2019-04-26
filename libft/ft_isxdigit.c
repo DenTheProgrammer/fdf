@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_isxdigit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ashari <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/07 13:31:29 by ashari            #+#    #+#             */
-/*   Updated: 2019/04/08 18:33:37 by ashari           ###   ########.fr       */
+/*   Created: 2019/04/09 15:38:59 by ashari            #+#    #+#             */
+/*   Updated: 2019/04/09 15:42:28 by ashari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char	*ft_strnew(size_t size)
+int		ft_isxdigit(int c)
 {
-	return ((char *)ft_memalloc(size + 1));
+	if (c >= '0' && c <= '9')
+		return (1);
+	if (c >= 'A' && c <= 'F')
+		return (1);
+	if (c >= 'a' && c <= 'f')
+		return (1);
+	else
+		return (0);
 }

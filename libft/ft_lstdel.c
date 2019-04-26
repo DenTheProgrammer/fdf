@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strndup.c                                       :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ashari <ashari@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ashari <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/04 18:00:07 by ashari            #+#    #+#             */
-/*   Updated: 2019/04/13 11:44:43 by ashari           ###   ########.fr       */
+/*   Created: 2019/04/08 20:20:54 by ashari            #+#    #+#             */
+/*   Updated: 2019/04/08 22:30:36 by ashari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strndup(const char *s1, size_t n)
+void		ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	char	*new_s1;
-	int		i;
+	t_list	*nextl;
+	t_list	*newl;
 
-	if (!(new_s1 = (char *)malloc(sizeof(char) * (n + 1))))
-		return (NULL);
-	i = 0;
-	while (s1[i] && i < (int)n)
+	if (alst && del != NULL)
 	{
-		new_s1[i] = s1[i];
-		i++;
+		newl = *alst;
+		while (newl)
+		{
+			nextl = newl->next;
+			(del)(newl->content, newl->content_size);
+			free(newl);
+			newl = nextl;
+		}
+		*alst = NULL;
 	}
-	new_s1[i] = '\0';
-	return (new_s1);
 }

@@ -6,7 +6,7 @@
 /*   By: ashari <ashari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 20:02:37 by ashari            #+#    #+#             */
-/*   Updated: 2019/04/25 11:39:34 by ashari           ###   ########.fr       */
+/*   Updated: 2019/04/25 19:51:57 by ashari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,7 @@ int     deal_key(int key, t_list *window)
     y = 200;
     if (key == 53)
         exit (EXIT_SUCCESS);
-    while (x > 100)
-    {
-        mlx_pixel_put(window->mlx_ptr, window->win_ptr, x, y, 0xFFFFFF);
-        x -= 10;
-    }
+    
     return (0);
 }
 
