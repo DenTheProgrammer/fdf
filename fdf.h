@@ -6,7 +6,7 @@
 /*   By: ashari <ashari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/25 17:25:28 by ashari            #+#    #+#             */
-/*   Updated: 2019/04/26 22:32:08 by ashari           ###   ########.fr       */
+/*   Updated: 2019/04/27 21:32:11 by ashari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdlib.h>
 # include <math.h>
 
-typedef	struct		dot
+typedef	struct		s_dot
 {
 	int				x;
 	int				y;
@@ -26,21 +26,30 @@ typedef	struct		dot
 	int				color;
 }					t_dot;
 
-typedef	struct		window
+typedef	struct		s_image
 {
-	int				size; //size of the window
-	int				pix_size; //for example: 10 pixels for 1 step
+	void			*img_ptr;
+	int				bpp;
+	int				*data;
+	int				endian;
+}					t_img;
+
+typedef	struct		s_window
+{
+	int				wight;
 	int				start_x;
 	int				start_y;
 	int				x1;
 	int				x2;
 	int				y1;
 	int				y2;
-	void			*mlx_ptr; //system
-	void			*win_ptr; //system
-	t_dot			**points;
+	void			*mlx_ptr;
+	void			*win_ptr;
+	void			*img_ptr;
+	t_dot			**p;
+	t_img			img;
 }					t_window;
 
-//int				ft_brezen(int key, t_window *map);
+int				ft_brezen(t_window *w);
 
 #endif

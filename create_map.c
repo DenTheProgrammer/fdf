@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_brezen.c                                        :+:      :+:    :+:   */
+/*   create_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ashari <ashari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/25 17:21:42 by ashari            #+#    #+#             */
-/*   Updated: 2019/04/26 22:12:03 by ashari           ###   ########.fr       */
+/*   Created: 2019/04/27 15:38:56 by ashari            #+#    #+#             */
+/*   Updated: 2019/04/27 15:56:19 by ashari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./fdf.h"
+#include "fdf.h"
 
 static int		ft_abs(int n)
 {
@@ -79,3 +79,22 @@ int				ft_brezen(int key, t_window *map)
 		build_the_line_01(x, y, map);
 	return (0);
 }
+
+void			create_map(t_window *w)
+{
+	int		i;
+
+	i = -1;
+	while (w->p[++i])
+	{
+		w->x1 = (w->p[i]->x + w->p[i]->y) * cos(0.523599) + w->size;
+		w->y1 = (w->p[i]->x - w->p[i]->y) * cos(0.523599)
+		- w->p[i]->z + w->size;
+		w->x2 = (w->p[i + 1]->x + w->p[i + 1]->y) * cos(0.523599) + w->size;
+		w->y2 = (w->p[i + 1]->x - w->p[i + 1]->y) * cos(0.523599)
+		- w->p[i]->z + w->size;
+		mlx_hook(w->win_ptr, 2, 0, ft_brezen, (void *)w);
+	}
+}
+
+

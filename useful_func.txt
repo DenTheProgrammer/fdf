@@ -1,0 +1,11 @@
+Задать клавиши:
+Пример закрытия файла:
+
+int     deal_key(int key, t_list *window)
+{
+    if (key == 53)
+        exit (EXIT_SUCCESS);
+    return (0);
+}
+
+mlx_hook(window->win_ptr, 2, 0,  deal_key, (void *)window);
