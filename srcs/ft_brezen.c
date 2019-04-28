@@ -6,7 +6,7 @@
 /*   By: ashari <ashari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/25 17:21:42 by ashari            #+#    #+#             */
-/*   Updated: 2019/04/28 13:51:10 by ashari           ###   ########.fr       */
+/*   Updated: 2019/04/28 17:14:26 by ashari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void		build_the_line_01(int x, int y, t_window *w)
 	f = 0;
 	sign_a = ((w->crd.y2 - w->crd.y1) < 0) ? -1 : 1;
 	sign_b = ((w->crd.x1 - w->crd.x2) < 0) ? -1 : 1;
-	while (x != w->crd.x2 && y != w->crd.y2)
+	while (x != w->crd.x2 || y != w->crd.y2)
 	{
 		if ((f = f + (w->crd.x1 - w->crd.x2) * sign_b) > 0)
 		{
@@ -42,7 +42,7 @@ static void		build_the_line_00(int x, int y, t_window *w)
 	f = 0;
 	sign_a = ((w->crd.y2 - w->crd.y1) < 0) ? -1 : 1;
 	sign_b = ((w->crd.x1 - w->crd.x2) < 0) ? -1 : 1;
-	while (x != w->crd.x2 && y != w->crd.y2)
+	while (x != w->crd.x2 || y != w->crd.y2)
 	{
 		if ((f = f + (w->crd.y2 - w->crd.y1) * sign_a) > 0)
 		{
