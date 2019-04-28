@@ -1,16 +1,15 @@
-NAME = a.out
+NAME = fdf.out
 
-SRCS = ft_brezen.c
+SRCS = srcs/ft_brezen.c
 
 OBJS = $(SRCS:.c=.o)
 
-CC = cc
 FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
 $(NAME) :
-	@$(CC) $(FLAGS) -I ./minilibx	$(SRCS) -L ./minilibx -lmlx -framework	OpenGL -framework AppKit
+	cd srcs &&  cc $(FLAGS) ../srcs/*.c -I ../minilibx -L ../minilibx -lmlx -framework OpenGL -framework AppKit ../libft/libft.a -g -o $(NAME) && cd ..
 
 clean :
 	@rm -f $(OBJS)
