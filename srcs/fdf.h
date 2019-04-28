@@ -6,7 +6,7 @@
 /*   By: ashari <ashari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/25 17:25:28 by ashari            #+#    #+#             */
-/*   Updated: 2019/04/28 15:53:42 by ashari           ###   ########.fr       */
+/*   Updated: 2019/04/28 16:35:57 by ashari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <math.h>
+# include <fcntl.h>
+# include "../libft/libft.h"
 
 typedef	struct		s_dot
 {
@@ -63,5 +65,6 @@ int				ft_abs(int n);
 void			window_size(t_window *w);
 void			print_map(t_window *w);
 void			start_coordinate(t_window *w);
+t_dot**			read_map_from_file(char *filename, t_window *window);
 
 #endif
