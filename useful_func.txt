@@ -1,0 +1,26 @@
+Задать клавиши:
+
+- Пример закрытия файла:
+
+int     deal_key(int key, t_list *window)
+{
+    if (key == 53)
+        exit (EXIT_SUCCESS);
+    return (0);
+}
+
+mlx_hook(window->win_ptr, 2, 0,  deal_key, (void *)window);
+
+- Закрыть по нажатию на крест:
+
+mlx_hook (d-> win, 17, (1L << 17), & red_cross, d);
+
+int red_cross (int key, t_data * d)
+{
+exit (0);
+возврат (0);
+}
+
+- Много полезных ссылок:
+
+https://forum.intra.42.fr/topics/20056/messages/last

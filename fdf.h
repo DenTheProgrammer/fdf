@@ -6,7 +6,7 @@
 /*   By: ashari <ashari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/25 17:25:28 by ashari            #+#    #+#             */
-/*   Updated: 2019/04/26 22:32:08 by ashari           ###   ########.fr       */
+/*   Updated: 2019/04/28 15:53:42 by ashari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdlib.h>
 # include <math.h>
 
-typedef	struct		dot
+typedef	struct		s_dot
 {
 	int				x;
 	int				y;
@@ -26,21 +26,42 @@ typedef	struct		dot
 	int				color;
 }					t_dot;
 
-typedef	struct		window
+typedef	struct		s_image
 {
-	int				size; //size of the window
-	int				pix_size; //for example: 10 pixels for 1 step
+	void			*img_ptr;
+	int				bpp;
+	int				size;
+	int				*data;
+	int				endian;
+}					t_img;
+
+typedef	struct		s_coord
+{
 	int				start_x;
 	int				start_y;
 	int				x1;
 	int				x2;
 	int				y1;
 	int				y2;
-	void			*mlx_ptr; //system
-	void			*win_ptr; //system
-	t_dot			**points;
+}					t_coord;
+
+typedef	struct		s_window
+{
+	int				map_sizex;
+	int				map_sizey;
+	int				wight;
+	int				hight;
+	void			*mlx_ptr;
+	void			*win_ptr;
+	t_dot			**map;
+	t_img			img;
+	t_coord			crd;
 }					t_window;
 
-//int				ft_brezen(int key, t_window *map);
+int				ft_brezen(t_window *w);
+int				ft_abs(int n);
+void			window_size(t_window *w);
+void			print_map(t_window *w);
+void			start_coordinate(t_window *w);
 
 #endif
