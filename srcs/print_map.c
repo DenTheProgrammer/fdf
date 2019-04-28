@@ -6,33 +6,38 @@
 /*   By: ashari <ashari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/27 15:38:56 by ashari            #+#    #+#             */
-/*   Updated: 2019/04/27 23:16:38 by ashari           ###   ########.fr       */
+/*   Updated: 2019/04/28 15:51:22 by ashari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-/*
-*	Возможны проблемы с определением y1 y2 (неккоректно учит координаты)
-*	Эта функция вызывается после определения новых коорд (0;0)
-*/
-
 void			print_map(t_window *w)
 {
-	int		i;
+	int		x;
+	int		y;
 
-	i = -1;
-	w->x1 = w->start_x;
-	w->x2 = w->start_x;
-	w->y1 = w->start_y;
-	w->y2 = w->start_y;
-	while (w->p[++i])
+	y = 0;
+	w->crd.x1 = w->crd.start_x;
+	w->crd.x2 = w->crd.start_x;
+	w->crd.y1 = w->crd.start_y;
+	w->crd.y2 = w->crd.start_y;
+	while (y < w->map_sizey)
 	{
-		w->x1 = (w->p[i]->x + w->p[i]->y) * cos(0.523599);
-		w->y1 = (w->p[i]->x - w->p[i]->y) * cos(0.523599) - w->p[i]->z;
-		w->x2 = (w->p[i + 1]->x + w->p[i + 1]->y) * cos(0.523599);
-		w->y2 = (w->p[i + 1]->x - w->p[i + 1]->y) * cos(0.523599) - w->p[i]->z;
-		ft_brezen(w);
+		x = 0;
+		while (x < w->map_sizex)
+		{
+			w->crd.x1 = (w->map[y][x].x + w->map[y][x].y) * cos(0.523599);
+			w->crd.y1 = (w->map[y][x].x - w->map[y][x].y) * cos(0.523599)
+			- w->map[y][x].z;
+			w->crd.x2 = (w->map[y][x + 1].x + w->map[y][x + 1].y)
+			* cos(0.523599);
+			w->crd.y2 = (w->map[y][x + 1].x - w->map[y][x + 1].y)
+			* cos(0.523599) - w->map[y][x + 1].z;
+			ft_brezen(w);
+			x++;
+		}
+		y++;
 	}
 }
 
